@@ -25,9 +25,9 @@ pipeline {
           withSonarQubeEnv('MySonarQube') {
             withCredentials([string(credentialsId: 'SONAR_TOKEN', variable: 'SONAR_TOKEN')])
             sh '''
-              mvn clean verify sonar:sonar \
+             " mvn clean verify sonar:sonar \
               -Dsonar.projectKey=hello-world \
-              -Dsonar.login=$SONAR_TOKEN
+              -Dsonar.login=${SONAR_TOKEN}"
             '''
           }
         }
