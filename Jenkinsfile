@@ -7,7 +7,7 @@ pipeline {
   }
 
   environment {
-    DOCKER_IMAGE = "arjunpdas/hello-world"
+    DOCKER_IMAGE = "rakshithmj21/hello-world"
     DOCKER_TAG = "latest"   // unique tag per build
     //SONAR_TOKEN = credentials('sonarqube-token')                // SonarQube token credential
   }
