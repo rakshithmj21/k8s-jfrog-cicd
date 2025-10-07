@@ -1,0 +1,60 @@
+# ========================
+# Maven / Java
+# ========================
+/app/target/                 # Maven build output
+/app/generated-sources/      # Generated sources
+/app/generated-test-sources/ # Generated test sources
+/app/maven-status/           # Maven compiler plugin status
+/app/test-classes/           # Compiled test classes
+**/*.class                   # Compiled Java classes
+**/*.jar                     # Built JAR files
+**/*.war                     # Built WAR files
+
+# Maven logs
+**/*.log
+
+# ========================
+# IDE / Editor
+# ========================
+# IntelliJ IDEA
+*.iml
+.idea/
+# Eclipse
+.project
+.classpath
+.settings/
+# VSCode
+.vscode/
+
+# ========================
+# OS / Temp files
+# ========================
+.DS_Store
+Thumbs.db
+*.swp
+*.tmp
+
+# ========================
+# Docker
+# ========================
+# Ignore built images, if stored locally
+**/Dockerfile~               # Temporary Dockerfile edits
+docker-compose.override.yml  # Local overrides
+
+# ========================
+# Jenkins
+# ========================
+/workspace/                  # Jenkins workspace (if ever pulled)
+*.jenkinsfile.local          # Local Jenkinsfile overrides
+
+# ========================
+# Kubernetes / YAML
+# ========================
+# Keep all your k8s manifests! (deployment.yaml, service.yaml, sonarqube.yaml)
+# If you have local secrets or temp configs, add them here, e.g.:
+# k8s/secrets.yaml
+
+# ========================
+# Others
+# ========================
+*.env                        # Environment files
