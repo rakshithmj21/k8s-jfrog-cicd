@@ -73,7 +73,7 @@ pipeline {
         expression { currentBuild.resultIsBetterOrEqualTo('SUCCESS') }
       }
       steps {
-        withCredentials([file(credentialsId: 'kubeconfig-file', variable: 'KUBECONFIG')]) {
+        withCredentials([file(credentialsId: 'kubeconfig12', variable: 'KUBECONFIG')]) {
           sh '''
             kubectl apply -f k8s/deployment.yaml
             kubectl apply -f k8s/service.yaml
