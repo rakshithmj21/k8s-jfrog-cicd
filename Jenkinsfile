@@ -23,7 +23,7 @@ pipeline {
       steps {
         dir('app') {
           withSonarQubeEnv('MySonarQube') {
-            withCredentials([string(credentialsId: 'sonarqube-token', variable: 'SONAR_TOKEN')])
+            withCredentials([string(credentialsId: 'SONAR_TOKEN', variable: 'SONAR_TOKEN')])
             sh '''
               mvn clean verify sonar:sonar \
               -Dsonar.projectKey=hello-world \
