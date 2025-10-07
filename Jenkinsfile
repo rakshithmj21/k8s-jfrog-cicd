@@ -89,7 +89,7 @@ pipeline {
         expression { currentBuild.resultIsBetterOrEqualTo('SUCCESS') }
       }
       steps {
-        withCredentials([file(credentialsId: 'kubeconfig-file', variable: 'KUBECONFIG')]) {
+        withCredentials([file(credentialsId: 'kubeconfig12', variable: 'KUBECONFIG')]) {
           sh '''
             kubectl get pods -o wide
             kubectl get svc hello-world-svc -o wide
