@@ -1,0 +1,51 @@
+piVersion: apps/v1
+kind: Deployment
+metadata:
+  name: artifactory
+  namespace: jfrog
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: artifactory
+  template:
+    metadata:
+      labels:
+        app: artifactory
+    spec:
+      containers:
+      - name: artifactory
+        image: releases-docker.jfrog.io/jfrog/artifactory-oss:7.63.10
+        env:
+          - name: ARTIFACTORY_CONTEXT_PATH
+            value: /artifactory
+        ports:
+          - containerPort: 8081
+        resources:
+          requests:
+            memory: "1Gi"
+            cpu: "1000m"
+          limits:
+            memory: "2Gi"
+            cpu: "2000m"
+        volumeMounts:
+          - name: artifactory-data
+            mountPath: /var/opt/jfrog/artifactory
+      volumes:
+        - name: artifactory-data
+          emptyDir: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: artifactory
+  namespace: jfrog
+spec:
+  type: NodePort
+  selector:
+    app: artifactory
+  ports:
+    - name: http
+      port: 8081
+      targetPort: 8081
+      nodePort: 30081
